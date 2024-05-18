@@ -1,4 +1,8 @@
 services:
+  nginx:
+    image: nginx:1.25.4
+    ports:
+      - "80:80"
   client:
     image: node:21.6.2
     working_dir: /app
