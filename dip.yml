@@ -15,3 +15,4 @@ interaction:
 
 provision:
   - dip npm install
+  - dip npm run build
