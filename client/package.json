@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode=development",
+    "watch": "webpack --mode=development -w",
     "check": "tsc"
   },
   "devDependencies": {
