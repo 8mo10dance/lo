@@ -5,7 +5,8 @@ module.exports = {
   entry: path.resolve(__dirname, "src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    filename: "bundle.[contenthash].js",
+    clean: true,
   },
   module: {
     rules: [
