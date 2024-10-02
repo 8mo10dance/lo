@@ -5,10 +5,27 @@ import * as z from "zod";
 
 import Layout from "../../components/Layout";
 
+async function duplicatedEmail(email: string) {
+  return new Promise<boolean>((resolve) => {
+    setTimeout(() => {
+      resolve(false);
+      // resolve(true);
+    }, 1000);
+  });
+}
+
 const schema = z.object({
   user: z.object({
     name: z.string().min(1),
-    email: z.string().min(1).email(),
+    email: z
+      .string()
+      .min(1)
+      .email()
+      .refine(async (value) => {
+        const isDuplicated = await duplicatedEmail(value);
+
+        return isDuplicated;
+      }, "Email is already used"),
   }),
 });
 
