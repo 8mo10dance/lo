@@ -14,6 +14,7 @@ export default function Layout({ title, children }: Props) {
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
+          <NavLink to="/users/new">ユーザー登録</NavLink>
         </nav>
       </header>
       <main>{children}</main>
