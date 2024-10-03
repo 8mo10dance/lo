@@ -24,7 +24,7 @@ const schema = z.object({
       .refine(async (value) => {
         const isDuplicated = await duplicatedEmail(value);
 
-        return isDuplicated;
+        return !isDuplicated;
       }, "Email is already used"),
   }),
 });
