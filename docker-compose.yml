@@ -29,7 +29,19 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./init:/etc/localstack/init"
       - "./data:/home/localstack/data"
+  rails:
+    build:
+      context: rails
+      args:
+        RAILS_ENV: development
+    volumes:
+      - ./rails:/rails
+      - bundle:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    command: bundle exec rails s -b 0.0.0.0
 
 volumes:
   node_modules:
   public:
+  bundle:
