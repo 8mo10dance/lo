@@ -30,3 +30,4 @@ provision:
   - dip bundle install
   - dip rails dartsass:build
   - dip rails db:migrate
+  - dip rails db:seed_fu
