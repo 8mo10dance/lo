@@ -12,7 +12,22 @@ interaction:
         command: npm run dev
         compose:
           run_options: [service-ports]
+  bundle:
+    service: rails
+    command: bundle
+  rails:
+    service: rails
+    command: bundle exec rails
+    subcommands:
+      s:
+        command: bundle exec rails s -b 0.0.0.0
+        compose:
+          run_options: [service-ports]
 
 provision:
   - dip npm install
   - dip npm run build
+  - dip bundle install
+  - dip rails dartsass:build
+  - dip rails db:migrate
+  - dip rails db:seed_fu
