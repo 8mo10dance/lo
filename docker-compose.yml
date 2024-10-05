@@ -20,7 +20,9 @@ services:
     build:
       context: rails
       args:
-        RAILS_ENV: development
+        RAILS_ENV: ${RAILS_ENV:-development}
+    environment:
+        RAILS_ENV: ${RAILS_ENV:-development}
     volumes:
       - ./rails:/rails
       - bundle:/usr/local/bundle
