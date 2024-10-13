@@ -28,6 +28,8 @@ jobs:
           context: ./rails
           push: true
           tags: dockerdxm/lo-rails:test
+          cache-from: type=registry,ref=dockerdxm/lo-rails:test
+          cache-to: type=inline
           build-args: |
             RAILS_ENV=test
 
