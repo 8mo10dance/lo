@@ -1,8 +1,8 @@
+import apiRequest from './base'
 import { User } from '../types'
 
 export async function getUsers(): Promise<User[]> {
-  const response = await fetch('/api/v1/users')
-  const data = await response.json()
+  const data = await apiRequest<{ users: User[] }>('/api/v1/users')
 
   return data.users
 }
