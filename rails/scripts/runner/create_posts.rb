@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class CreatePosts
   def initialize(dry: true)
     @dry = dry
   end
 
   def execute!
-    logger = Logger.new(STDOUT)
+    logger = Logger.new($stdout)
 
     ApplicationRecord.transaction do
       logger.info('Post を登録します')
