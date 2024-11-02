@@ -40,12 +40,10 @@ jobs:
           context: ./rails
           push: true
           tags: dockerdxm/lo-rails:test
-          cache-from: >-
-            type=local,
-            src=.cache/${{ github.repository }}/docker-build-cache
-          cache-to: >-
-            type=local,
-            dest=.cache/${{ github.repository }}/docker-build-cache
+          cache-from: |
+            type=local,src=.cache/${{ github.repository }}/docker-build-cache
+          cache-to: |
+            type=local,dest=.cache/${{ github.repository }}/docker-build-cache
           build-args: |
             RAILS_ENV=test
 
