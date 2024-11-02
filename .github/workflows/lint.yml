@@ -43,3 +43,23 @@ jobs:
           reporter: github-pr-review
           skip_install: true
           use_bundler: true
+
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '21.6'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run eslint with reviewdog
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
