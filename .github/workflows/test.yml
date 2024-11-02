@@ -26,6 +26,14 @@ jobs:
 
       - uses: docker/setup-buildx-action@v3
 
+      - name: Restore from and save to external cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/${{ github.repository }}/docker-build-cache
+          key: ${{ runner.os }}-lo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-lo-
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
