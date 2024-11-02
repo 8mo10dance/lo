@@ -15,6 +15,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           yamllint_flags: '--config-file .config/yamllint.yml .github/**/*.yml'
+          level: info
 
   rubocop:
     runs-on: ubuntu-latest
